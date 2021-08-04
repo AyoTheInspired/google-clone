@@ -1,11 +1,18 @@
 import "./App.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
+import SearchPage from "./pages/SearchPage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
 	return (
 		<div className="App">
-			<Home />
+			<Router>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/search" component={SearchPage} />
+				</Switch>
+			</Router>
 		</div>
 	);
 }

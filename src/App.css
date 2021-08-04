@@ -19,3 +19,8 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.flex-btw {
+	display: flex;
+	justify-content: space-between;
+}
