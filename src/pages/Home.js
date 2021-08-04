@@ -19,7 +19,9 @@ function Home() {
 					<Avatar />
 				</div>
 			</div>
-			<div className="home__body"></div>
+			<div className="home__body">
+				<img src="/images/google-logo.png" alt="google-logo" />
+			</div>
 		</div>
 	);
 }
