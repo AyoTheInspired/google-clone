@@ -1,25 +1,56 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 import MicIcon from "@material-ui/icons/Mic";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
-function Search() {
+function Search({ hideButtons = false }) {
+	const [input, setInput] = useState("");
+	const history = useHistory();
+
+	const search = (e) => {
+		e.preventDefault();
+
+		history.push("/search");
+	};
+
 	return (
-		<Div>
+		<Form>
 			<div className="search__input">
 				<SearchIcon className="search__inputIcon" />
-				<input />
+				<input value={input} onChange={(e) => setInput(e.target.value)} />
 				<MicIcon />
 			</div>
 
-			<div className="search__buttons"></div>
-		</Div>
+			{!hideButtons ? (
+				<div className="search__buttons">
+					<Button type="submit" variant="outlined" onClick={search}>
+						Google Search
+					</Button>
+					<Button variant="outlined">I'm Feeling Lucky</Button>
+				</div>
+			) : (
+				<div className="search__buttons">
+					<Button
+						className="search__buttonsHidden"
+						type="submit"
+						variant="outlined"
+						onClick={search}>
+						Google Search
+					</Button>
+					<Button className="search__buttonsHidden" variant="outlined">
+						I'm Feeling Lucky
+					</Button>
+				</div>
+			)}
+		</Form>
 	);
 }
 
 export default Search;
 
-const Div = styled.div`
+const Form = styled.form`
 	.search__input {
 		display: flex;
 		align-items: center;
@@ -46,5 +77,33 @@ const Div = styled.div`
 		.search__inputIcon {
 			color: gray;
 		}
+	}
+
+	.search__buttons {
+		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+
+		button {
+			margin: 5px;
+			padding: 7px 15px;
+			background-color: #f8f8f8;
+			border: 1px solid #fff;
+			text-transform: inherit;
+			color: #5f6368;
+			transition: var(--sht-trans);
+
+			&:hover {
+				box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+				background-image: --webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+				background-color: #f8f8f8;
+				border: 1px solid #c6c6c6;
+				color: #222;
+			}
+		}
+	}
+
+	.search__buttonsHidden {
+		display: none !important;
 	}
 `;
