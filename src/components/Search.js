@@ -10,7 +10,7 @@ import { actionTypes } from "../reducer";
 function Search({ hideButtons = false }) {
 	const [input, setInput] = useState("");
 
-	const [{}, dispatch] = useStateValue();
+	const [{ term }, dispatch] = useStateValue();
 
 	const history = useHistory();
 

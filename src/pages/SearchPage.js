@@ -1,7 +1,18 @@
 import React from "react";
+import styled from "styled-components";
+import { useStateValue } from "../StateProvider";
 
 function SearchPage() {
-	return <div>THIS IS THE SEARCH PAGE</div>;
+	const [{ term }, dispatch] = useStateValue();
+	return (
+		<Div>
+			<div className="searchPage__header">first div</div>
+
+			<div className="searchPage__results">second div</div>
+		</Div>
+	);
 }
 
 export default SearchPage;
+
+const Div = styled.div``;
