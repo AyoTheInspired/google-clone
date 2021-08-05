@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { useStateValue } from "../StateProvider";
+import { useStateValue } from "./StateProvider";
 
 function SearchPage() {
-	const [{ term }, dispatch] = useStateValue();
+	const [{}] = useStateValue();
 	return (
 		<Div>
 			<div className="searchPage__header">first div</div>
