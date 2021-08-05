@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from "react";
 
-export const StateContext = useContext();
+export const StateContext = createContext();
 
 export const StateProvider = ({ reducer, initialState, children }) => {
 	return (
@@ -12,4 +12,4 @@ export const StateProvider = ({ reducer, initialState, children }) => {
 
 export default StateProvider;
 
-export const useStateValue = () => usecontext(StateContext);
+export const useStateValue = () => useContext(StateContext);
